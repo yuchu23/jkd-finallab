@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 适应缩放-->
+    <link rel="icon" href="images/icon.jpg" type="image/x-icon">
+    <title>排序可视化</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-menu">
+            <li><a href="#home">可视化</a></li>
+            <li><a href="#about">排序算法介绍</a></li>
+            <li><a href="#contact">致谢</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="container">
+        <h1>排序可视化</h1>
+        <div class="controls">
+            <button onclick="generateRandomArray(10)">随机生成10个数</button>
+            <button onclick="generateRandomArray(20)">随机生成20个数</button>
+            <button onclick="generateRandomArray(50)">随机生成50个数</button>
+            <button onclick="generateRandomArray(100)">随机生成100个数</button>
+            <button onclick="generateCustomArray()">随机生成自定义个数</button>
+            <input type="number" id="customArraySize" placeholder="输入自定义大小（建议不超过1000）"><br>
+            <p>选择排序速度：</p>
+            <select id="speedSelector">
+                <option value="0.5">0.5x</option>
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option>
+                <option value="4">4x</option>
+                <option value="16">16x</option>
+                <option value="64">64x</option>
+            </select>
+        </div>
+        <button id="startButton" onclick="startSort()">开始排序</button>
+        <h4 style="font-family: 'Times New Roman', Times, serif;">————适度缩放效果更佳哦————</h4>
+        <div id="bubbleSortTime"></div>
+        <div id="quickSortTime"></div>
+        <div id="insertionSortTime"></div>
+        <div id="selectionSortTime"></div>
+        <div id="fastestSort"></div>
+
+        <div class="sort-container">
+            <div id="bubbleSortContainer" class="sort-section">
+                <h3>冒泡排序</h3>
+                <div id="bubbleArrayContainer" class="array-container"></div>
+            </div>
+            <div id="quickSortContainer" class="sort-section">
+                <h3>快速排序</h3>
+                <div id="quickArrayContainer" class="array-container"></div>
+            </div>
+            <div id="insertionSortContainer" class="sort-section">
+                <h3>插入排序</h3>
+                <div id="insertionArrayContainer" class="array-container"></div>
+            </div>
+            <div id="selectionSortContainer" class="sort-section">
+                <h3>选择排序</h3>
+                <div id="selectionArrayContainer" class="array-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="text">
+        <h2 class="center-align">排序算法</h2>
+        <p><a href="https://baike.baidu.com/item/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F" target="_blank">冒泡排序</a>：每次比较相邻的两个元素，如果他们的顺序错误就交换他们。是一种稳定的排序，时间复杂度为 O(n²) 。</p>
+        <p><a href="https://baike.baidu.com/item/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" target="_blank">快速排序</a>：每次随机选择一个基准元素，将比基准元素小的元素放在基准元素的左边，将比基准元素大的元素放在基准元素的右边，然后分别对左右两边的元素进行快速排序。快速排序是一种不稳定的排序，时间复杂度为 O(nlogn) 。</p>
+        <p><a href="https://baike.baidu.com/item/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F" target="_blank">插入排序</a>：将数组分为两部分，一部分是已排序的，一部分是未排序的，每次从未排序的部分取出一个元素插入到已排序的部分。插入排序也是一种稳定的排序，其时间复杂度为 O(n²) 。</p>
+        <p><a href="https://baike.baidu.com/item/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F" target="_blank">选择排序</a>：每次从未排序的部分选择一个最小的元素放到已排序的部分的末尾。选择排序是一种不稳定的排序，时间复杂度为 O(n²) 。</p>
+        <p>我们可以看到，在数组元素数量较少时，不同算法的排序时间差别不大；而元素很多时，快速排序的速度优势十分明显。当然，这四种算法只是排序算法的一小部分，除此之外还有希尔排序、堆排序、桶排序、归并排序等等众多的算法，想要了解更多可点击<a href="https://www.cnblogs.com/l199616j/p/10742603.html" target="_blank">八大排序算法详解</a>。</p>
+    </div>
+
+    <div id="contact" class="text2">
+        <h3 class="center-align">致谢</h3>
+        <p>之前学习各种排序算法时，我总是苦恼于抽象的算法描述，即使书上有示意图也感到不是很明白。所以一直想要通过可视化的办法让排序变得更加直观明了，因此有了这个简单但有趣的作品。</p>
+        <p>感谢<a href="https://www.runoob.com/" target="_blank">菜鸟教程</a>提供的有关 CSS, html, javascript 语法的详细指导，感谢博客园用户<a href="https://www.cnblogs.com/l199616j" target="_blank">博客开发喵</a>的图解。</p>
+        <p>感谢助教聂均鸿老师的帮助。</p>
+        <p>背景所用图片来自于<a href="https://www.cfp.cn/" target="_blank">视觉中国</a>。</p>
+    </div>    
+    <script src="scripts.js"></script>
+</body>
+</html>
